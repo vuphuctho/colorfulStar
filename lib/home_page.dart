@@ -21,7 +21,8 @@ class HomePage extends StatelessWidget {
                 ),
                 Text(model.text,
                   style: TextStyle(fontWeight: FontWeight.bold),
-                )
+                ),
+                Text(model.c)
               ]
             )
           )

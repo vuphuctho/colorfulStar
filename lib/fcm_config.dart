@@ -20,24 +20,20 @@ class FCMConfiguration {
       _isInit = true;
       _fcmInstance = FirebaseMessaging();
 
-      // Omit iOS settings for now
       await _fcmInstance.requestNotificationPermissions();
       
       _fcmInstance.configure(
-        onMessage: (Map<String, dynamic> message) {
-          print("onMessage: $message");
+        onMessage: (Map<String, dynamic> message) async {
           if (_onFCMReceived != null)
             _onFCMReceived(message);
         },
         onLaunch: (Map<String, dynamic> message) async {
-          print("onLaunch: $message");
-          // if (_onFCMReceived != null)
-          //   _onFCMReceived(message);
+          if (_onFCMReceived != null)
+            _onFCMReceived(message);
         },
         onResume: (Map<String, dynamic> message) async {
-          print("onResume: $message");
-          // if (_onFCMReceived != null)
-          //   _onFCMReceived(message);
+          if (_onFCMReceived != null)
+            _onFCMReceived(message);
         },
       );
 
