@@ -1,10 +1,15 @@
-import 'package:colorful_star/fcm_config.dart';
 import 'package:colorful_star/home_page.dart';
+import 'package:colorful_star/starModel.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  FCMConfiguration.init();
-  runApp(MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => StarModel(),
+      child: MyApp()
+    )
+  );
 }
 
 class MyApp extends StatelessWidget {
