@@ -13,7 +13,9 @@ class FCMConfiguration {
       _onFCMReceived = listener;
   }
 
-  static void init() async {
+  static void init(
+
+  ) async {
     if (!_isInit) {
       _isInit = true;
       _fcmInstance = FirebaseMessaging();
@@ -22,7 +24,7 @@ class FCMConfiguration {
       await _fcmInstance.requestNotificationPermissions();
       
       _fcmInstance.configure(
-        onMessage: (Map<String, dynamic> message) async {
+        onMessage: (Map<String, dynamic> message) {
           print("onMessage: $message");
           if (_onFCMReceived != null)
             _onFCMReceived(message);
